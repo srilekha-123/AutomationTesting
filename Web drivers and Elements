@@ -1,0 +1,40 @@
+package driver;
+import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+import org.openqa.selenium.WebElement;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;    
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class driv {
+	public static void main(String[] args) {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\exam2\\Desktop\\browsers\\chromedriver_win32 (2)\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+//		driver.get("https://www.selenium.dev/selenium/web/web-form.html");
+//		String title = driver.getTitle();
+//		System.out.println(title);
+////		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+//		// Implicit wait timeout for 20seconds
+////		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//		WebElement textBox = driver.findElement(By.name("my-text"));
+//		WebElement submitButton = driver.findElement(By.cssSelector("button"));
+//	    textBox.sendKeys("Selenium");
+//	    submitButton.click();
+//	    WebElement message = driver.findElement(By.id("message"));
+//	    String value = message.getText();
+//	    System.out.println(value);
+////		driver.manage().window().maximize();
+//		driver.quit();
+//		driver.get("file:///C:/Users/exam2/eclipse-workspace/driver/xpath.html");
+//		System.out.print(driver.findElement(By.cssSelector("#fname")));
+//		System.out.print(driver.findElement(By.xpath("//input[@value='f']")));
+		driver.get("https://the-internet.herokuapp.com/upload");
+		driver.findElement(By.id("file-upload")).sendKeys("selenium-snapshot.jpg");
+		driver.findElement(By.id("file-submit")).submit();
+		if(driver.getPageSource().contains("File Uploaded!")) {
+			System.out.println("file uploaded");
+		}
+		else{
+				System.out.println("file not uploaded");
+			}
+	}
